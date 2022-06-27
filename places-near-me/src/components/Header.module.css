@@ -1,0 +1,27 @@
+.header{
+    height: 10vh;
+    width: 100vw;
+    margin: 0;
+    padding:2rem;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.header  button{
+    display: none;
+}
+.header form{
+    width: 35%;
+    display: flex;
+}
+
+.header input{
+    margin-left: .5rem;
+    height: 2rem;
+    width:65%;
+    text-align: center;
+}
