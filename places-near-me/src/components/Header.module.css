@@ -9,19 +9,50 @@
     align-items: center;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    
 }
 
-.header  button{
-    display: none;
-}
-.header form{
-    width: 35%;
+.placesauto{
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 35%;
+    
 }
 
-.header input{
-    margin-left: .5rem;
+.placesauto input{
+    width: 16rem;
     height: 2rem;
-    width:65%;
-    text-align: center;
+    margin-left: 1rem;
+    border-radius: .2rem;
+    outline: none;
+    border: none;
 }
+
+.placesauto ul{
+    padding: 0.5rem;
+    font-size: .9rem;
+    position: absolute;
+    width: 16rem;
+    list-style: none;
+    top: 8vh;
+    right: 2rem;
+    border-radius:.2rem ;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    z-index: 1;
+    
+
+}
+
+.placesauto >ul>li{
+    cursor: pointer;
+}
+
+
+
+
+

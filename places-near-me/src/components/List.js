@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import classes from "./List.module.css";
-import { getPlacesData } from "./api/travelAdviser";
+import { getPlacesData } from "../api/travelAdviser";
 
 function List() {
   const [placeholder, setPlaceHolder] = useState("Attraction");
   const [ratings, setRatings] = useState("Ratings");
 
   useEffect(() => {
-    getPlacesData()
+    // getPlacesData()
 
     
     
