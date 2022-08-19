@@ -1,8 +1,7 @@
 .main{
     display: grid;
     grid-template-columns: 30% 70%;
-    height: 90vh;
-    width: 100vw;
+    height: 92vh;
     margin: 0;
     padding: 0;
 }

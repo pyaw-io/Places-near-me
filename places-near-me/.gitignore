@@ -6,8 +6,13 @@
 .pnp.js
 .env
 
+test.js
+
+
 # testing
 /coverage
+
+
 
 # production
 /build

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import classes from "./Header.module.css";
 import useOnclickOutside from "react-cool-onclickoutside";
+import { IoSearch } from "react-icons/io5";
 
 
 
@@ -40,18 +41,18 @@ function Header({ data, ready, value, setValue,handleSelect }) {
 
   return (
     <div className={classes.header} >
-      <h1>Places Near Me</h1>
-     {/* ref={ref} */}
-      
+      <h2>Places Near Me</h2>
+     
       <div className={classes.placesauto}   >
         <label>Explore new places</label>
+        {/* <IoSearch/> */}
         <input
           value={value}
           onChange={handleInput}
           disabled={!ready}
           placeholder='Search'
         />
-        {/* We can use the "status" to decide whether we should display the dropdown or not */}
+       
         {data.length > 0 && <ul>{renderSuggestions()}</ul>}
       </div>
     </div>
