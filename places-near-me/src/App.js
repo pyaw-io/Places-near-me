@@ -22,7 +22,7 @@ function App() {
   const [bounds, setBounds] = useState(null);
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState('restaurants');
-  const [rating, setRating] = useState('all');
+  const [rating, setRating] = useState('5');
   const [placeDetails, setPlaceDetails] = useState({});
 
 
@@ -61,7 +61,7 @@ function App() {
   //load places
   useEffect(() => {
     if (bounds) {
-      getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+      getPlacesData(type,rating, bounds.sw, bounds.ne).then((data) => {
         setPlaceDetails(
           data?.filter((place) => place.name && place.num_reviews > 0)
         );
@@ -69,7 +69,7 @@ function App() {
         setLoading(true)
       });
     }
-  }, [bounds,type]);
+  }, [bounds,type,rating]);
 
   //get the current location
 

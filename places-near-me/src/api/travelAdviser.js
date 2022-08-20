@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-export const getPlacesData = async(type,sw,ne) => {
+export const getPlacesData = async(type,rating,sw,ne) => {
     try{
         const options = {
             method: 'GET',
@@ -11,6 +11,7 @@ export const getPlacesData = async(type,sw,ne) => {
                 tr_latitude: `${ne.lat}`,
                 bl_longitude: `${sw.lng}`,
                 tr_longitude: `${ne.lng}`,
+                min_rating: `${rating}`,
                 
               },
             headers: {

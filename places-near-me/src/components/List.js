@@ -15,7 +15,10 @@ function List({type, placeDetails,setType, setRating}) {
     event.preventDefault();
     setPlaceHolder(type)
     setType(selectedType.current.value);
-    setRating(selectedRatings.current.value);
+    if(selectedRatings.current.value !== 'All'){
+      setRating(selectedRatings.current.value);
+    }
+    
   };
 
   return (
@@ -41,6 +44,7 @@ function List({type, placeDetails,setType, setRating}) {
           >
             <option value="All">All</option>
             <option value="Above_3.0">Above 3.0</option>
+            <option value="Above_3.5">Above 3.0</option>
             <option value="Above_4.0">Above 4.0</option>
             <option value="Above_4.5">Above 4.5</option>
           </select>
