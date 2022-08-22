@@ -12,14 +12,21 @@
  border-top-left-radius: .3rem;
  border-top-right-radius: .3rem;
  margin:.7rem 1rem;
- padding: 0 0.5rem;
+
  -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.09);
 -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.09);
 box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.09);
 }
 
+.places_card img {
+    width:100%;
+    max-height: 15rem;
+    object-fit: cover;
+}
+
 .placesdetails{
     width: 100%;
+     padding: 0 0.5rem;
 }
 
 .placesdetails div{
@@ -42,15 +49,20 @@ box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.09);
 
 
 .placesdetails  .menu{
-    justify-content: flex-start
+    max-width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap:.3rem;
 
 }
 
 .placesdetails .menu span{
-    margin-right: 1rem;
+    /* margin-right: .3rem; */
     padding: 0rem 0.8rem 0.2rem 0.8rem;
     border:solid .1rem rgba(0, 0, 0, 0.267);
     align-items: center;
+   
+    
 
     border-radius: 25rem;
 }
@@ -58,5 +70,9 @@ box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.09);
     margin-right: 1rem;
     text-decoration: none;
     
+}
+
+.placesdetails span{
+    font-size: small;
 }
 

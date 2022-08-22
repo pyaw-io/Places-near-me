@@ -1,13 +1,11 @@
 import { React, useEffect } from "react";
 
 import GoogleMapReact from "google-map-react";
-import Marker from "./ui/Marker";
+import Marker from "../ui/Marker";
 
 import classes from "./Map.module.css";
 
 function Map({ coords, setCoords, setBounds, placeDetails }) {
-
-
 
 
 
@@ -22,7 +20,7 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
 
   };
   return (
-    <div className={classes.map}>
+    <div className={classes.map}  style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: process.env.REACT_APP_GOOGLE_PLACES_API,
@@ -30,7 +28,7 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
           id: "__googleMapsScriptId",
         }}
         center={coords}
-        defaultZoom={11}
+        defaultZoom={13}
         onClick={clickHandler}
         onChange={(e) => {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
@@ -38,7 +36,7 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
         }}
       
       >
-        {placeDetails.map((place, i) => {
+        {placeDetails?.map((place, i) => {
           return (
             <Marker
           

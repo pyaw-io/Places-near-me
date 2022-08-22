@@ -1,8 +1,17 @@
-import React, {  useState, useRef } from "react";
+import React, {  useState, useRef,CSSProperties } from "react";
 import classes from "./List.module.css";
 import Places from "./Places";
+import ClipLoader from "react-spinners/ClipLoader";
 
-function List({type, placeDetails,setType, setRating}) {
+
+const override: CSSProperties = {
+  position:'absolute',
+  top:'50%',
+  left:'5%',
+};
+
+
+function List({type, placeDetails,setType, setRating,setPlaceDetails}) {
  
   const selectedType = useRef();
   const selectedRatings = useRef();
@@ -13,13 +22,23 @@ function List({type, placeDetails,setType, setRating}) {
 
   const selectFormHandler = (event) => {
     event.preventDefault();
-    setPlaceHolder(type)
-    setType(selectedType.current.value);
+
+    if(selectedType.current.value !== type){
+      setType(selectedType.current.value);
+      setPlaceDetails(null)
+        setPlaceHolder(type)
+    }
+
+
+
+  
+    
     if(selectedRatings.current.value !== 'All'){
       setRating(selectedRatings.current.value);
     }
     
   };
+
 
   return (
     <div className={classes.list}>
@@ -52,10 +71,11 @@ function List({type, placeDetails,setType, setRating}) {
       </form>
     </div>
     <div className={classes.list_body}>
-      <Places 
-    loading={loading}
+
+      {placeDetails? <Places 
     placeDetails={placeDetails}
-    />
+    /> : <ClipLoader color='#0765fd' loading={!placeDetails} cssOverride={override}   size={100} />}
+      
     </div>
     
     

@@ -1,11 +1,11 @@
 
-import { IoCall, IoLocationSharp } from "react-icons/io5";
+import { IoLocationSharp } from "react-icons/io5";
 import { MdStar } from "react-icons/md";
 import classes from "./Places.module.css";
 
-import Card from "./ui/Card";
+import Card from "../ui/Card";
 
-const Places = ({ loading, placeDetails }) => {
+const Places = ({placeDetails}) => {
 
 
   //function for displaying stars
@@ -17,18 +17,19 @@ const Places = ({ loading, placeDetails }) => {
     return totalStars;
   };
 
+
   return (
     <div>
-      {loading && (
+      {placeDetails && (
         <div className={classes.places}>
           {placeDetails?.map((place, i) => (
             <Card className={classes.places_card} key={i}>
-              <img src={place.photo.images.large.url} />
+              {place.photo &&  <img src={place.photo.images.medium.url} /> }
               <div className={classes.placesdetails}>
                 <h4>{place.name}</h4>
                 <div>
                   <div>
-                    <span>{rating(place.rating)}</span>
+                    <span>{place.rating && rating(place.rating)}</span>
 
                     <span>{`${place.num_reviews} reviews`}</span>
                   </div>
@@ -41,7 +42,7 @@ const Places = ({ loading, placeDetails }) => {
                     <span>{place.ranking_position}</span>
                   </div>
                   <div className={classes.menu}>
-                    {place.cuisine.map((item, i) => (
+                    {place.cuisine && place.cuisine.map((item, i) => (
                       <span key={i}>{item.name}</span>
                     ))}
                   </div>
@@ -49,12 +50,12 @@ const Places = ({ loading, placeDetails }) => {
                     <span>
                       <IoLocationSharp />
                     </span>
-                    <span>{place.address}</span>
+                    <span>{place.address?place.address : place.location_string}</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <IoCall />
                     <span>place.number</span>
-                  </div>
+                  </div> */}
                   <div className={classes.menu}>
                     <a href={place.web_url} target="_blank">
                       Trip Adviser

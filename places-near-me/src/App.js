@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, CSSProperties  } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
+import { getPlacesData } from "./api/travelAdviser";
 import Header from "./components/Header";
 import Map from "./components/Map";
 import List from "./components/List";
-import classes from "./App.module.css";
+import ClipLoader from "react-spinners/ClipLoader";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -15,15 +16,21 @@ const loader = new Loader({
   libraries: ["places"],
 });
 
+ const override: CSSProperties = {
+    margin: "auto auto",
+  };
 
 
 function App() {
   const [coords, setCoords] = useState({});
   const [bounds, setBounds] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('5');
-  const [placeDetails, setPlaceDetails] = useState({});
+  const [placeDetails, setPlaceDetails] = useState(null);
+
+ 
+  
 
 
   const {
@@ -34,7 +41,6 @@ function App() {
     clearSuggestions,
   } = usePlacesAutocomplete({
     requestOptions: {
-      /* Define search scope here */
     },
     debounce: 300,
   });
@@ -54,19 +60,22 @@ function App() {
 
         setCoords({ lat, lng });
 
-        setLoading(true);
       });
     };
 
   //load places
   useEffect(() => {
     if (bounds) {
+     
       getPlacesData(type,rating, bounds.sw, bounds.ne).then((data) => {
         setPlaceDetails(
-          data?.filter((place) => place.name && place.num_reviews > 0)
+          
+          data?.filter((place) => place.name && place.num_reviews > 0 
+          )
         );
 
-        setLoading(true)
+
+        setLoading(false)
       });
     }
   }, [bounds,type,rating]);
@@ -79,8 +88,10 @@ function App() {
         setCoords({ lat: latitude, lng: longitude });
       }
     );
-    setLoading(true);
+    setLoading(false);
   }, []);
+
+  
 
   return (
     <div>
@@ -91,15 +102,16 @@ function App() {
         setValue={setValue}
         handleSelect={handleSelect}
       />
-      <main className={classes.main}>
+      <main >
         <List
           setType={setType}
           setRating={setRating}
           type={type}
-          loading={loading}
           placeDetails={placeDetails}
+          setPlaceDetails={setPlaceDetails}
+          
         />
-        {loading && (
+        {loading? <ClipLoader color='#0765fd' loading={loading} cssOverride={override}   size={100} /> : (
           <Map
             coords={coords}
             bounds={bounds}

@@ -8,16 +8,6 @@ import { IoSearch } from "react-icons/io5";
 function Header({ data, ready, value, setValue,handleSelect }) {
 
 
-  
-// ///
-//   const ref = useOnclickOutside(() => {
-//     // When user clicks outside of the component, we can dismiss
-//     // the searched suggestions by calling this method
-//     clearSuggestions();
-//   });
-
-//   ////
-
   const handleInput = (e) => {
     // Update the keyword of the input element
     setValue(e.target.value);
@@ -45,13 +35,18 @@ function Header({ data, ready, value, setValue,handleSelect }) {
      
       <div className={classes.placesauto}   >
         <label>Explore new places</label>
-        {/* <IoSearch/> */}
+        <div className={classes.search}><IoSearch /></div>
+      
+         
         <input
           value={value}
+          type='search'
           onChange={handleInput}
           disabled={!ready}
           placeholder='Search'
         />
+       
+        
        
         {data.length > 0 && <ul>{renderSuggestions()}</ul>}
       </div>

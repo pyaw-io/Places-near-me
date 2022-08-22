@@ -30,3 +30,23 @@ code {
   border-radius: 300px;
 }
 
+main{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 92vh;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  body{
+    overflow-y: scroll;
+    max-height: fit-content;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+

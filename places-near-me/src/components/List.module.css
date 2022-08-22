@@ -1,7 +1,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  /* max-width: 100%; */
   max-height: 90vh;
 }
 
@@ -11,10 +10,8 @@
   flex-direction: column;
   max-width: 100%;
   max-height: 30vh;
-  /* border:solid 1px black */
 }
 .list_header div {
-  /* margin-right: .5rem; */
   max-width: 40%;
   display: flex;
   flex-direction: column;
@@ -35,6 +32,13 @@
   height: 2rem;
   border: none;
   border-bottom: solid 2px #0765fd ;
+  appearance: none;
+ 
+}
+
+.list_header select:focus{
+  outline: none !important;
+
 }
 
 .list_header h3{
@@ -46,4 +50,62 @@
     max-width: 100%;
     max-height: 80%;
     overflow-y: scroll;
+}
+
+@media (max-width: 1000px) {
+  .list{
+      align-items: center;
+      width: 100vw;
+    
+
+  }
+
+  .list_header{
+      width: 100vw;
+      
+      display: flex;
+      flex-direction: row;
+      align-items: space-between;
+      justify-content: space-between;
+    
+  }
+
+  .list_header form{
+    width: 50%;
+    
+    align-items: center;
+    justify-content: flex-end;
+    padding-right:1rem ;
+
+  }
+
+ 
+ 
+
+
+}
+
+@media (max-width: 600px) {
+  .list_header{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.list_header form{
+  width: 100%;
+  justify-content: center; 
+
+}
+
+
+.list_header label, .list_header select{
+  text-align: center;
+}
+
+
+
+
 }
