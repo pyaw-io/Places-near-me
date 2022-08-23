@@ -57,12 +57,11 @@
     padding: 0.5rem;
     font-size: .9rem;
     position: absolute;
-    width: 16rem;
+    width: 17.1rem;
     list-style: none;
     top: 8vh;
-    right: 2rem;
     border-radius:.2rem ;
-    background-color: antiquewhite;
+    background-color: #0765fd;
     display: flex;
     flex-direction: column;
     white-space: nowrap;
@@ -75,10 +74,16 @@
     cursor: pointer;
 }
 
+
+
 @media (max-width: 1000px) {
     .placesauto label{
         display: none;
 
+    }
+  
+    .placesauto ul{
+        margin-right:1rem;
     }
 
    

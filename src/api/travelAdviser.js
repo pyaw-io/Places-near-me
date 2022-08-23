@@ -2,6 +2,7 @@ import axios from 'axios'
 
 
 export const getPlacesData = async(type,rating,sw,ne) => {
+
     try{
         const options = {
             method: 'GET',

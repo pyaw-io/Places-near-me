@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, } from "react";
 
 import GoogleMapReact from "google-map-react";
 import Marker from "../ui/Marker";
@@ -6,10 +6,6 @@ import Marker from "../ui/Marker";
 import classes from "./Map.module.css";
 
 function Map({ coords, setCoords, setBounds, placeDetails }) {
-
-
-
-
   const clickHandler = ({ x, y, lat, lng }) => {
     setCoords({
       lat: lat,
@@ -17,10 +13,12 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
     });
 
     setBounds({ ne: x, sw: y });
-
   };
+
+
+
   return (
-    <div className={classes.map}  style={{ height: '100vh', width: '100%' }}>
+    <div className={classes.map} style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: process.env.REACT_APP_GOOGLE_PLACES_API,
@@ -34,15 +32,16 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
-      
       >
         {placeDetails?.map((place, i) => {
           return (
             <Marker
-          
               lat={Number(place.latitude)}
               lng={Number(place.longitude)}
+              description={place.name}
+              rating={place.rating}
               key={i}
+          
             />
           );
         })}
@@ -52,4 +51,3 @@ function Map({ coords, setCoords, setBounds, placeDetails }) {
 }
 
 export default Map;
-

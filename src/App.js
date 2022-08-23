@@ -26,7 +26,7 @@ function App() {
   const [bounds, setBounds] = useState(null);
   const [loading, setLoading] = useState(true);
   const [type, setType] = useState('restaurants');
-  const [rating, setRating] = useState('5');
+  const [rating, setRating] = useState('3');
   const [placeDetails, setPlaceDetails] = useState(null);
 
  
@@ -44,6 +44,8 @@ function App() {
     },
     debounce: 300,
   });
+
+ 
 
   //get the selected location
   const handleSelect =
@@ -75,6 +77,7 @@ function App() {
         );
 
 
+
         setLoading(false)
       });
     }
@@ -101,6 +104,7 @@ function App() {
         value={value}
         setValue={setValue}
         handleSelect={handleSelect}
+        clearSuggestions={clearSuggestions}
       />
       <main >
         <List

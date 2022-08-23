@@ -1,21 +1,12 @@
 
 import { IoLocationSharp } from "react-icons/io5";
-import { MdStar } from "react-icons/md";
+
+import { ratingStars } from "../helper/helper";
 import classes from "./Places.module.css";
 
 import Card from "../ui/Card";
 
 const Places = ({placeDetails}) => {
-
-
-  //function for displaying stars
-  const rating = (num) => {
-    const number = Math.round(num);
-    const totalStars = Array(number)
-      .fill("a")
-      .map((_, i) => <MdStar key={i}></MdStar>);
-    return totalStars;
-  };
 
 
   return (
@@ -29,7 +20,7 @@ const Places = ({placeDetails}) => {
                 <h4>{place.name}</h4>
                 <div>
                   <div>
-                    <span>{place.rating && rating(place.rating)}</span>
+                    <span>{place.rating && ratingStars(place.rating)}</span>
 
                     <span>{`${place.num_reviews} reviews`}</span>
                   </div>
@@ -52,10 +43,7 @@ const Places = ({placeDetails}) => {
                     </span>
                     <span>{place.address?place.address : place.location_string}</span>
                   </div>
-                  {/* <div>
-                    <IoCall />
-                    <span>place.number</span>
-                  </div> */}
+                
                   <div className={classes.menu}>
                     <a href={place.web_url} target="_blank">
                       Trip Adviser

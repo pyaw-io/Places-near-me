@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const override: CSSProperties = {
   position:'absolute',
   top:'50%',
-  left:'5%',
+  left:'10%',
 };
 
 
@@ -34,6 +34,7 @@ function List({type, placeDetails,setType, setRating,setPlaceDetails}) {
   
     
     if(selectedRatings.current.value !== 'All'){
+      setPlaceDetails(null)
       setRating(selectedRatings.current.value);
     }
     
@@ -62,10 +63,9 @@ function List({type, placeDetails,setType, setRating,setPlaceDetails}) {
             placeholder={placeholder}
           >
             <option value="All">All</option>
-            <option value="Above_3.0">Above 3.0</option>
-            <option value="Above_3.5">Above 3.0</option>
-            <option value="Above_4.0">Above 4.0</option>
-            <option value="Above_4.5">Above 4.5</option>
+          <option value='3.5'>Above 3.5</option>
+            <option value='4.0'>Above 4.0</option>
+            <option value='4.5'>Above 4.5</option>
           </select>
         </div>
       </form>
